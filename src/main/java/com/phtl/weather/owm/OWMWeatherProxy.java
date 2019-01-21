@@ -23,7 +23,7 @@ public class OWMWeatherProxy implements WeatherProxy {
 
     @Override
     public WeatherResult findWeather(GeoCoordinate coordinate) {
-        WeatherResult weatherResult = restTemplate.getForObject(owmUrl, WeatherResult.class, coordinate.getLat(), coordinate.getLon(), appId);
+        WeatherResult weatherResult = restTemplate.getForObject(owmUrl, WeatherResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId);
         return weatherResult;
     }
 }
