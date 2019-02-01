@@ -1,9 +1,14 @@
-package com.phtl.weather.owm;
 
-import com.fasterxml.jackson.annotation.*;
+package com.phtl.weather.owm.forecast;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Weather {
@@ -17,7 +22,7 @@ public class Weather {
     @JsonProperty("icon")
     private String icon;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<>();
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("id")
     public Integer getId() {

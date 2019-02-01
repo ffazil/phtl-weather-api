@@ -1,5 +1,6 @@
 package com.phtl.weather;
 
 public interface WeatherProxy {
-    Object findWeather(GeoCoordinate coordinate);
+    Object findCurrentWeather(GeoCoordinate coordinate);
+    Object findForecast(GeoCoordinate coordinate);
 }

@@ -1,7 +1,7 @@
 package com.phtl.weather;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.phtl.weather.owm.WeatherResult;
+import com.phtl.weather.owm.weather.WeatherResult;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

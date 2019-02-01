@@ -1,4 +1,4 @@
-package com.phtl.weather.owm;
+package com.phtl.weather.owm.weather;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -6,33 +6,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Wind {
+public class Coord {
 
-    @JsonProperty("speed")
-    private Double speed;
-    @JsonProperty("deg")
-    private Integer deg;
+    @JsonProperty("lon")
+    private Integer lon;
+    @JsonProperty("lat")
+    private Integer lat;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
 
-    @JsonProperty("speed")
-    public Double getSpeed() {
-        return speed;
+    @JsonProperty("lon")
+    public Integer getLon() {
+        return lon;
     }
 
-    @JsonProperty("speed")
-    public void setSpeed(Double speed) {
-        this.speed = speed;
+    @JsonProperty("lon")
+    public void setLon(Integer lon) {
+        this.lon = lon;
     }
 
-    @JsonProperty("deg")
-    public Integer getDeg() {
-        return deg;
+    @JsonProperty("lat")
+    public Integer getLat() {
+        return lat;
     }
 
-    @JsonProperty("deg")
-    public void setDeg(Integer deg) {
-        this.deg = deg;
+    @JsonProperty("lat")
+    public void setLat(Integer lat) {
+        this.lat = lat;
     }
 
     @JsonAnyGetter

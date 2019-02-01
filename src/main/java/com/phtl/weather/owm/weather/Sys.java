@@ -1,4 +1,4 @@
-package com.phtl.weather.owm;
+package com.phtl.weather.owm.weather;
 
 import com.fasterxml.jackson.annotation.*;
 
