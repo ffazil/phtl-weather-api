@@ -22,12 +22,12 @@ public class DefaultWeatherService implements WeatherService{
 
     @Override
     @Cacheable
-    public Object findWeather(GeoCoordinate coordinate) {
+    public Result findWeather(GeoCoordinate coordinate) {
         ZonedDateTime timeAtLocation = timeService.timeAtLocation(coordinate);
         log.info("Time at location: {}", timeAtLocation.toString());
         if(forecastRange.isValidValue(timeAtLocation.getHour())){
-            return weatherProxy.findForecast(coordinate);
+            return Result.from(weatherProxy.findForecast(coordinate));
         }
-        return weatherProxy.findCurrentWeather(coordinate);
+        return Result.from(weatherProxy.findCurrentWeather(coordinate));
     }
 }
