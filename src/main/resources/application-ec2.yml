@@ -6,6 +6,13 @@ spring:
     banner-mode: "off"
   devtools:
     add-properties: false
+  cache:
+    cache-names: weather
+    caffeine:
+      spec: expireAfterWrite=10800s
 owm:
   appid: 659c58547457aff55894e298a3f85ac3
-  url: http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={appid}
+  weather:
+    url: http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={appid}&units=imperial
+  forecast:
+    url: http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={appid}&units=imperial

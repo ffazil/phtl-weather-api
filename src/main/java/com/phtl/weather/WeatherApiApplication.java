@@ -7,7 +7,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@EnableCaching
 @SpringBootApplication
 public class WeatherApiApplication {
 
@@ -19,6 +18,10 @@ public class WeatherApiApplication {
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
+
+    /**
+     * https://stackoverflow.com/questions/8181768/can-i-set-a-ttl-for-cacheable
+     */
 
     /*@Bean
     public CacheManager cacheManager() {

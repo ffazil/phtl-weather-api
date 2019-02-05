@@ -1,6 +1,11 @@
 spring:
   profiles: dev
 ---
+spring:
+  cache:
+    cache-names: weather
+    caffeine:
+      spec: expireAfterWrite=10s
 owm:
   appid: 659c58547457aff55894e298a3f85ac3
   weather:
