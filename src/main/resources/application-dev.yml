@@ -11,4 +11,6 @@ owm:
   weather:
     url: http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={appid}&units=imperial
   forecast:
-    url: http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={appid}&units=imperial
+    url: http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={appid}&units=imperial&cnt=2
+  daily:
+    url: http://api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&appid={appid}&units=imperial&cnt=2

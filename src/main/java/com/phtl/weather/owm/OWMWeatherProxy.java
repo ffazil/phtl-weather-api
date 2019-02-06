@@ -2,6 +2,7 @@ package com.phtl.weather.owm;
 
 import com.phtl.weather.GeoCoordinate;
 import com.phtl.weather.WeatherProxy;
+import com.phtl.weather.owm.daily.DailyForecastResult;
 import com.phtl.weather.owm.forecast.ForecastResult;
 import com.phtl.weather.owm.weather.WeatherResult;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,9 @@ public class OWMWeatherProxy implements WeatherProxy {
     @Value("${owm.forecast.url}")
     private String owmForecastUrl;
 
+    @Value("${owm.daily.url}")
+    private String owmDailyForecastUrl;
+
 
 
     @Override
@@ -38,5 +42,11 @@ public class OWMWeatherProxy implements WeatherProxy {
     public ForecastResult findForecast(GeoCoordinate coordinate) {
         ForecastResult forecastResult = restTemplate.getForObject(owmForecastUrl, ForecastResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId);
         return forecastResult;
+    }
+
+    @Override
+    public DailyForecastResult findDailyForecast(GeoCoordinate coordinate) {
+        DailyForecastResult dailyForecastResult = restTemplate.getForObject(owmDailyForecastUrl, DailyForecastResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId);
+        return dailyForecastResult;
     }
 }

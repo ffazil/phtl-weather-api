@@ -24,9 +24,8 @@ public class DefaultWeatherService implements WeatherService{
     @Cacheable
     public Result findWeather(GeoCoordinate coordinate) {
         ZonedDateTime timeAtLocation = timeService.timeAtLocation(coordinate);
-        log.info("Time at location: {}", timeAtLocation.toString());
         if(forecastRange.isValidValue(timeAtLocation.getHour())){
-            return Result.from(weatherProxy.findForecast(coordinate));
+            return Result.from(weatherProxy.findDailyForecast(coordinate), weatherProxy.findCurrentWeather(coordinate), timeAtLocation);
         }
         return Result.from(weatherProxy.findCurrentWeather(coordinate));
     }
