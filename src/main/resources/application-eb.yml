@@ -1,11 +1,15 @@
 spring:
-  profiles: dev
+  profiles: eb
 ---
 spring:
+  main:
+    banner-mode: "off"
+  devtools:
+    add-properties: false
   cache:
     cache-names: weather
     caffeine:
-      spec: expireAfterWrite=10s
+      spec: expireAfterWrite=10800s
 owm:
   appid: 659c58547457aff55894e298a3f85ac3
   weather:

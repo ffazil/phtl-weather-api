@@ -8,19 +8,31 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DailyForecastResult {
 
+    //@JsonIgnore
     @JsonProperty("city")
     private City city;
+
+    @JsonIgnore
     @JsonProperty("cod")
     private String cod;
+
+    @JsonIgnore
     @JsonProperty("message")
     private Double message;
+
+    @JsonIgnore
     @JsonProperty("cnt")
     private Integer cnt;
+
+
     @JsonProperty("list")
     private java.util.List<List> list = null;
+
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    @JsonIgnore
     @JsonProperty("city")
     public City getCity() {
         return city;
@@ -31,6 +43,7 @@ public class DailyForecastResult {
         this.city = city;
     }
 
+    @JsonIgnore
     @JsonProperty("cod")
     public String getCod() {
         return cod;
@@ -41,6 +54,7 @@ public class DailyForecastResult {
         this.cod = cod;
     }
 
+    @JsonIgnore
     @JsonProperty("message")
     public Double getMessage() {
         return message;
@@ -51,6 +65,7 @@ public class DailyForecastResult {
         this.message = message;
     }
 
+    @JsonIgnore
     @JsonProperty("cnt")
     public Integer getCnt() {
         return cnt;

@@ -6,6 +6,6 @@ import com.phtl.weather.owm.weather.WeatherResult;
 
 public interface WeatherProxy {
     WeatherResult findCurrentWeather(GeoCoordinate coordinate);
-    ForecastResult findForecast(GeoCoordinate coordinate);
-    DailyForecastResult findDailyForecast(GeoCoordinate coordinate);
+    ForecastResult findForecast(GeoCoordinate coordinate, Integer days);
+    DailyForecastResult findDailyForecast(GeoCoordinate coordinate, Integer days);
 }

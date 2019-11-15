@@ -39,14 +39,14 @@ public class OWMWeatherProxy implements WeatherProxy {
     }
 
     @Override
-    public ForecastResult findForecast(GeoCoordinate coordinate) {
-        ForecastResult forecastResult = restTemplate.getForObject(owmForecastUrl, ForecastResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId);
+    public ForecastResult findForecast(GeoCoordinate coordinate, Integer days) {
+        ForecastResult forecastResult = restTemplate.getForObject(owmForecastUrl, ForecastResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId, days);
         return forecastResult;
     }
 
     @Override
-    public DailyForecastResult findDailyForecast(GeoCoordinate coordinate) {
-        DailyForecastResult dailyForecastResult = restTemplate.getForObject(owmDailyForecastUrl, DailyForecastResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId);
+    public DailyForecastResult findDailyForecast(GeoCoordinate coordinate, Integer days) {
+        DailyForecastResult dailyForecastResult = restTemplate.getForObject(owmDailyForecastUrl, DailyForecastResult.class, coordinate.getLatRounded(), coordinate.getLonRounded(), appId, days);
         return dailyForecastResult;
     }
 }

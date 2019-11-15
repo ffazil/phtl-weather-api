@@ -18,8 +18,9 @@ public class WeatherController {
 
 
     @GetMapping(path = "/weather")
-    public ResponseEntity<?> findWeather(@RequestParam("lat") double lat, @RequestParam("lon") double lon) {
+    public ResponseEntity<?> findWeather(@RequestParam("lat") double lat, @RequestParam("lon") double lon,
+                                         @RequestParam(value = "days", defaultValue = "7") Integer days) {
         GeoCoordinate coordinate = GeoCoordinate.from(lat, lon);
-        return ResponseEntity.ok(weatherService.findWeather(coordinate));
+        return ResponseEntity.ok(weatherService.findWeather(coordinate, days));
     }
 }

@@ -8,21 +8,34 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Temp {
 
+    @JsonIgnore
     @JsonProperty("day")
     private Double day;
+
+
     @JsonProperty("min")
     private Double min;
+
+
     @JsonProperty("max")
     private Double max;
+
+    @JsonIgnore
     @JsonProperty("night")
     private Double night;
+
+    @JsonIgnore
     @JsonProperty("eve")
     private Double eve;
+
+    @JsonIgnore
     @JsonProperty("morn")
     private Double morn;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    @JsonIgnore
     @JsonProperty("day")
     public Double getDay() {
         return day;
@@ -53,6 +66,7 @@ public class Temp {
         this.max = max;
     }
 
+    @JsonIgnore
     @JsonProperty("night")
     public Double getNight() {
         return night;
@@ -63,6 +77,7 @@ public class Temp {
         this.night = night;
     }
 
+    @JsonIgnore
     @JsonProperty("eve")
     public Double getEve() {
         return eve;
@@ -73,6 +88,7 @@ public class Temp {
         this.eve = eve;
     }
 
+    @JsonIgnore
     @JsonProperty("morn")
     public Double getMorn() {
         return morn;
@@ -83,6 +99,7 @@ public class Temp {
         this.morn = morn;
     }
 
+    @JsonIgnore
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;

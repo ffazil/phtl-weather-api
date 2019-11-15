@@ -32,12 +32,19 @@ public class Result {
     @JsonProperty("city")
     private final String city;
 
+    private final DailyForecastResult dailyForecastResult;
+
+    /*private final WeatherResult weatherResult;*/
+
     private Result(WeatherResult weatherResult){
         this.temp = weatherResult.getMain().getTemp();
         this.tempMin = weatherResult.getMain().getTempMin();
         this.tempMax = weatherResult.getMain().getTempMax();
         this.id = weatherResult.getWeather().stream().findFirst().get().getId();
         this.city = weatherResult.getName();
+
+        this.dailyForecastResult = null;
+        //this.weatherResult = null;
     }
 
     public static Result from(WeatherResult weatherResult){
@@ -45,6 +52,9 @@ public class Result {
     }
 
     private Result(ForecastResult forecastResult, ZonedDateTime timeAtLocation){
+
+        this.dailyForecastResult = null;
+        //this.weatherResult = null;
 
         Main main = forecastResult.getList().stream()
                 .findFirst().get().getMain();
@@ -71,6 +81,8 @@ public class Result {
     //TODO cleanup
     private Result(DailyForecastResult dailyForecastResult, WeatherResult weatherResult, ZonedDateTime timeAtLocation){
         log.info("Time at location: {}", timeAtLocation.toString());
+        this.dailyForecastResult = dailyForecastResult;
+        //this.weatherResult = weatherResult;
         /*dailyForecastResult.getList().stream()
                 .forEach(list -> {
                     ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochSecond(list.getDt().longValue()), timeAtLocation.getZone());

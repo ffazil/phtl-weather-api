@@ -24,3 +24,8 @@
 /nbdist/
 /.nb-gradle/
 /deploy/phtl.pem
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

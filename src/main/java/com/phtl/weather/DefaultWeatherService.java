@@ -22,11 +22,17 @@ public class DefaultWeatherService implements WeatherService{
 
     @Override
     @Cacheable
-    public Result findWeather(GeoCoordinate coordinate) {
+    public Result findWeather(GeoCoordinate coordinate, Integer days) {
+        if(days > 7){
+            days = 7;
+        }
+
         ZonedDateTime timeAtLocation = timeService.timeAtLocation(coordinate);
-        if(forecastRange.isValidValue(timeAtLocation.getHour())){
+        Result result = Result.from(weatherProxy.findDailyForecast(coordinate, days), weatherProxy.findCurrentWeather(coordinate), timeAtLocation);
+        return result;
+        /*if(forecastRange.isValidValue(timeAtLocation.getHour())){
             return Result.from(weatherProxy.findDailyForecast(coordinate), weatherProxy.findCurrentWeather(coordinate), timeAtLocation);
         }
-        return Result.from(weatherProxy.findCurrentWeather(coordinate));
+        return Result.from(weatherProxy.findCurrentWeather(coordinate));*/
     }
 }

@@ -10,14 +10,23 @@ public class City {
 
     @JsonProperty("id")
     private Integer id;
+
+    @JsonIgnore
     @JsonProperty("name")
     private String name;
+
+    @JsonIgnore
     @JsonProperty("coord")
     private Coord coord;
+
+    @JsonIgnore
     @JsonProperty("country")
     private String country;
+
+    @JsonIgnore
     @JsonProperty("population")
     private Integer population;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -30,7 +39,7 @@ public class City {
     public void setId(Integer id) {
         this.id = id;
     }
-
+    @JsonIgnore
     @JsonProperty("name")
     public String getName() {
         return name;
@@ -41,6 +50,7 @@ public class City {
         this.name = name;
     }
 
+    @JsonIgnore
     @JsonProperty("coord")
     public Coord getCoord() {
         return coord;
@@ -51,6 +61,7 @@ public class City {
         this.coord = coord;
     }
 
+    @JsonIgnore
     @JsonProperty("country")
     public String getCountry() {
         return country;
@@ -61,6 +72,7 @@ public class City {
         this.country = country;
     }
 
+    @JsonIgnore
     @JsonProperty("population")
     public Integer getPopulation() {
         return population;
@@ -71,14 +83,15 @@ public class City {
         this.population = population;
     }
 
+    @JsonIgnore
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
     }
 
-    @JsonAnySetter
+    /*@JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
-    }
+    }*/
 
 }

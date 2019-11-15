@@ -1,5 +1,5 @@
 package com.phtl.weather;
 
 public interface WeatherService {
-    Result findWeather(GeoCoordinate coordinate);
+    Result findWeather(GeoCoordinate coordinate, Integer days);
 }

@@ -8,14 +8,23 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Weather {
 
+
     @JsonProperty("id")
     private Integer id;
+
+    @JsonIgnore
     @JsonProperty("main")
     private String main;
+
+    @JsonIgnore
     @JsonProperty("description")
     private String description;
+
+    @JsonIgnore
     @JsonProperty("icon")
     private String icon;
+
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -29,6 +38,7 @@ public class Weather {
         this.id = id;
     }
 
+    @JsonIgnore
     @JsonProperty("main")
     public String getMain() {
         return main;
@@ -39,6 +49,7 @@ public class Weather {
         this.main = main;
     }
 
+    @JsonIgnore
     @JsonProperty("description")
     public String getDescription() {
         return description;
@@ -49,6 +60,7 @@ public class Weather {
         this.description = description;
     }
 
+    @JsonIgnore
     @JsonProperty("icon")
     public String getIcon() {
         return icon;
@@ -64,9 +76,9 @@ public class Weather {
         return this.additionalProperties;
     }
 
-    @JsonAnySetter
+    /*@JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
-    }
+    }*/
 
 }

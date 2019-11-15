@@ -8,25 +8,43 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class List {
 
+    @JsonIgnore
     @JsonProperty("dt")
     private Integer dt;
+
+
     @JsonProperty("temp")
     private Temp temp;
+
+    @JsonIgnore
     @JsonProperty("pressure")
     private Double pressure;
+
+    @JsonIgnore
     @JsonProperty("humidity")
     private Integer humidity;
+
+    //@JsonIgnore
     @JsonProperty("weather")
     private java.util.List<Weather> weather = null;
+
+    @JsonIgnore
     @JsonProperty("speed")
     private Double speed;
+
+    @JsonIgnore
     @JsonProperty("deg")
     private Integer deg;
+
+    @JsonIgnore
     @JsonProperty("clouds")
     private Integer clouds;
+
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    @JsonIgnore
     @JsonProperty("dt")
     public Integer getDt() {
         return dt;
@@ -47,6 +65,7 @@ public class List {
         this.temp = temp;
     }
 
+    @JsonIgnore
     @JsonProperty("pressure")
     public Double getPressure() {
         return pressure;
@@ -57,6 +76,7 @@ public class List {
         this.pressure = pressure;
     }
 
+    @JsonIgnore
     @JsonProperty("humidity")
     public Integer getHumidity() {
         return humidity;
@@ -67,16 +87,19 @@ public class List {
         this.humidity = humidity;
     }
 
+    //@JsonIgnore
     @JsonProperty("weather")
     public java.util.List<Weather> getWeather() {
         return weather;
     }
+
 
     @JsonProperty("weather")
     public void setWeather(java.util.List<Weather> weather) {
         this.weather = weather;
     }
 
+    @JsonIgnore
     @JsonProperty("speed")
     public Double getSpeed() {
         return speed;
@@ -87,6 +110,7 @@ public class List {
         this.speed = speed;
     }
 
+    @JsonIgnore
     @JsonProperty("deg")
     public Integer getDeg() {
         return deg;
@@ -97,6 +121,7 @@ public class List {
         this.deg = deg;
     }
 
+    @JsonIgnore
     @JsonProperty("clouds")
     public Integer getClouds() {
         return clouds;
@@ -107,14 +132,15 @@ public class List {
         this.clouds = clouds;
     }
 
+    @JsonIgnore
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
     }
 
-    @JsonAnySetter
+    /*@JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
-    }
+    }*/
 
 }
